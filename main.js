@@ -203,7 +203,7 @@ console.log(numeros.has(4));
 console.log("(16)=====================================================(16)");
 
 numeros.add(5);
-console.log(numeros);
+console.log([...numeros]);
 
 console.log("(17)=====================================================(17)");
 
@@ -257,9 +257,9 @@ console.log(combinados);
 
 console.log("(22)=====================================================(22)");
 
-const arr22 = [10,20,30,40]
+const arr22 = [10, 20, 30, 40];
 
-const [m,n,...resto] = arr22
+const [m, n, ...resto] = arr22;
 
 console.log(m);
 console.log(n);
@@ -267,15 +267,15 @@ console.log(resto);
 
 console.log("(23)=====================================================(23)");
 
-const arr23 = [1,[2,[3,[4]]]]
+const arr23 = [1, [2, [3, [4]]]];
 
 console.log(arr23.flat(3));
 
 console.log("(24)=====================================================(24)");
 
-const arr24 = [2,4,6]
+const arr24 = [2, 4, 6];
 
-const arr24div = arr24.flatMap(n => [n,n/2])
+const arr24div = arr24.flatMap((n) => [n, n / 2]);
 
 console.log(arr24div);
 
@@ -286,12 +286,16 @@ numbers25Map.set({ a: 1 }, "Alioli");
 numbers25Map.set({ a: 2 }, "Mayonesa");
 numbers25Map.set({ a: 3 }, "Ketchup");
 
-const map25 = [["a",1],["b",2],["c",3]]
+const map25 = [
+  ["a", 1],
+  ["b", 2],
+  ["c", 3],
+];
 
-for (const [k,v] of numbers25Map){
-  console.log(k,v);
+for (const [k, v] of numbers25Map) {
+  console.log(k, v);
 }
 
-for (const [k,v]of map25){
-console.log(k,v*2);
+for (const [k, v] of map25) {
+  console.log(k, v * 2);
 }
