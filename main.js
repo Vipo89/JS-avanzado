@@ -177,11 +177,11 @@ console.log(combinado);
 
 console.log("(13)=====================================================(13)");
 
-const caja = {x:2,y:5}
-caja.j = 3
+const caja = { x: 2, y: 5 };
+caja.j = 3;
 console.log(caja);
 
-Object.seal(caja)
+Object.seal(caja);
 
 caja.y += 3;
 caja.h = 1;
@@ -192,4 +192,106 @@ console.log("(14)=====================================================(14)");
 console.log(gato.hasOwnProperty("maullar"));
 console.log(gato.hasOwnProperty("sonido"));
 
-  
+console.log("(15)=====================================================(15)");
+
+const numeros = new Set([1, 2, 2, 3, 4]);
+console.log(numeros);
+numeros.delete(3);
+console.log(numeros);
+console.log(numeros.has(4));
+
+console.log("(16)=====================================================(16)");
+
+numeros.add(5);
+console.log(numeros);
+
+console.log("(17)=====================================================(17)");
+
+const ws = new WeakSet();
+
+const obj1 = { nombre: "A" };
+const obj2 = { nombre: "B" };
+ws.add(obj1);
+ws.add(obj2);
+
+console.log(ws);
+
+console.log("(18)=====================================================(18)");
+
+const animalsMap = new Map();
+
+animalsMap.set("perro", "mamífero");
+animalsMap.set("Gato", "mamífero");
+animalsMap.set("Leon", "mamífero");
+
+console.log(animalsMap);
+console.log("El tamaño del map es de ", animalsMap.size);
+
+console.log("(19)=====================================================(19)");
+
+const numbersMap = new Map();
+
+numbersMap.set({ a: 1 }, "Alberto");
+numbersMap.set({ a: 2 }, "Pedro");
+numbersMap.set({ a: 3 }, "Antonio");
+
+console.log(numbersMap);
+
+console.log("(20)=====================================================(20)");
+
+const wm = new WeakMap();
+
+const usuario = { nombre: "Víctor" };
+
+wm.set(usuario, "abc123");
+
+console.log("(21)=====================================================(21)");
+
+const arr1 = [1, 2];
+const arr2 = [3, 4];
+const arr3 = [5, 6];
+
+const combinados = [...arr1, ...arr2, ...arr3];
+
+console.log(combinados);
+
+console.log("(22)=====================================================(22)");
+
+const arr22 = [10,20,30,40]
+
+const [m,n,...resto] = arr22
+
+console.log(m);
+console.log(n);
+console.log(resto);
+
+console.log("(23)=====================================================(23)");
+
+const arr23 = [1,[2,[3,[4]]]]
+
+console.log(arr23.flat(3));
+
+console.log("(24)=====================================================(24)");
+
+const arr24 = [2,4,6]
+
+const arr24div = arr24.flatMap(n => [n,n/2])
+
+console.log(arr24div);
+
+console.log("(25)=====================================================(2)");
+
+const numbers25Map = new Map();
+numbers25Map.set({ a: 1 }, "Alioli");
+numbers25Map.set({ a: 2 }, "Mayonesa");
+numbers25Map.set({ a: 3 }, "Ketchup");
+
+const map25 = [["a",1],["b",2],["c",3]]
+
+for (const [k,v] of numbers25Map){
+  console.log(k,v);
+}
+
+for (const [k,v]of map25){
+console.log(k,v*2);
+}
