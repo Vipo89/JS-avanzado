@@ -149,3 +149,47 @@ const miMascota = crearSuperMascota("Ankor");
 
 miMascota.volar();
 miMascota.nadar();
+
+console.log("(11)=====================================================(11)");
+
+const animal = {
+  sonido() {
+    console.log("Hace un sonido");
+  },
+};
+
+const gato = Object.create(animal);
+
+gato.maullar = () => {
+  console.log("Miau");
+};
+
+gato.sonido();
+gato.maullar();
+
+console.log("(12)=====================================================(12)");
+
+const a = { a: 1, b: 2 };
+const b = { c: 3, d: 4 };
+const c = { e: 5, f: 6 };
+const combinado = Object.assign({}, a, b, c);
+console.log(combinado);
+
+console.log("(13)=====================================================(13)");
+
+const caja = {x:2,y:5}
+caja.j = 3
+console.log(caja);
+
+Object.seal(caja)
+
+caja.y += 3;
+caja.h = 1;
+console.log(caja);
+
+console.log("(14)=====================================================(14)");
+
+console.log(gato.hasOwnProperty("maullar"));
+console.log(gato.hasOwnProperty("sonido"));
+
+  
