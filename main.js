@@ -273,13 +273,13 @@ console.log(arr23.flat(3));
 
 console.log("(24)=====================================================(24)");
 
-const arr24 = [2, 4, 6];
+const arr24 = [2, 5, 8];
 
-const arr24div = arr24.flatMap((n) => [n, n / 2]);
+const arr24div = arr24.flatMap((n) => [n, n * 2]);
 
 console.log(arr24div);
 
-console.log("(25)=====================================================(2)");
+console.log("(25)=====================================================(25)");
 
 const numbers25Map = new Map();
 numbers25Map.set({ a: 1 }, "Alioli");
@@ -298,4 +298,121 @@ for (const [k, v] of numbers25Map) {
 
 for (const [k, v] of map25) {
   console.log(k, v * 2);
+}
+
+console.log("(26)=====================================================(26)");
+
+let countersum = 0;
+function counter() {
+  countersum++;
+  console.log(countersum);
+  if (countersum >= 5) {
+    clearInterval(myinterval);
+  }
+}
+const myinterval = setInterval(() => {
+  counter();
+}, 1000);
+
+console.log("(27)=====================================================(27)");
+
+const mySetTimeout = setTimeout(() => {
+  console.log("¡Hola!");
+}, 3000);
+
+clearTimeout(mySetTimeout);
+
+console.log("(28)=====================================================(28)");
+
+// const sayHello = () => {
+//   console.log("Hello");
+//   removeaddEventListener();
+// };
+
+// document.addEventListener("click", sayHello);
+
+// function removeaddEventListener() {
+//   document.removeEventListener("click", sayHello);
+// }
+
+// function sayHello(){
+//   console.log("Hello");
+//   removeaddEventListener();
+// }
+
+console.log("(29)=====================================================(29)");
+
+const exercise29 = () => {
+  try {
+    const ex29text = "Hola";
+    const ex29num = Number(ex29text);
+    if (isNaN(ex29num))
+      throw new Error("No se puede convertir a un numero un texto");
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+exercise29();
+
+console.log("(30)=====================================================(30)");
+
+class ProductoError extends Error {
+  constructor(msj) {
+    super(msj);
+    this.name = "ProductoError";
+  }
+}
+
+const validarPrecio = (precio) => {
+  if (precio < 0)
+    throw new ProductoError("El precio no puede ser inferior a 0");
+};
+
+try {
+  validarPrecio(-1);
+} catch (error) {
+  if (error instanceof ProductoError) {
+    console.error(`Error en el precio: | ${error.message} |`);
+  } else {
+    console.error(`El error no está en el precio: ${error.message}`);
+  }
+}
+console.log("(31)=====================================================(31)");
+
+function abrirAchivo(nombre) {
+  if (!nombre) {
+    throw new Error("¡Debes introducir el nombre del archivo!");
+  }
+}
+
+try {
+  abrirAchivo("");
+} catch (error) {
+  console.error(error.message);
+}
+
+console.log("(32)=====================================================(32)");
+
+function exercise32(n) {
+  if (n < 5) {
+    throw new Error("¡El número debe ser mayor de 5!");
+  }
+  console.log("El número es mayor de 5");
+}
+
+try {
+  exercise32(2);
+} catch (error) {
+  console.error(error.message);
+} finally {
+  console.log(`El proceso está finalizado`);
+}
+
+console.log("(33)=====================================================(33)");
+
+try {
+  throw new Error("Algo salió mal");
+} catch (error) {
+  console.log(error.name,error.message);
 }
