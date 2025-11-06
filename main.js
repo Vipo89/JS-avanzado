@@ -414,5 +414,83 @@ console.log("(33)=====================================================(33)");
 try {
   throw new Error("Algo salió mal");
 } catch (error) {
-  console.log(error.name,error.message);
+  console.log(error.name, error.message);
 }
+
+console.log("(34)=====================================================(34)");
+
+const cargarDatos = (callback, tiempo) => {
+  //Callback es el parametro funciónQuePaso, que dentro pues le paso el string
+  setTimeout(() => {
+    callback("Datos cargados");
+  }, tiempo * 1000);
+};
+
+const funcionQuePaso = (resultado) => console.log(resultado);
+
+function funcionquepaso1(resultado) {
+  console.log(resultado);
+}
+
+cargarDatos(funcionQuePaso, 2);
+
+// cargarDatos((resultado) => console.log(resultado),2);
+
+console.log("(35)=====================================================(35)");
+
+const promesa25 = new Promise((resolve, reject) => {
+  const isGood = true;
+  if (isGood) setTimeout(() => resolve("Promesa lista"), 150);
+  else reject("Promesa no lista");
+});
+
+promesa25.then((res) => console.log(res)).catch((error) => console.log(error));
+
+console.log("(36)=====================================================(36)");
+
+let n26 = 7;
+const promesa26failed = new Promise((resolve, reject) => {
+  if (n26 < 5) resolve(`${n26} es menor que 5`);
+  else reject(`${n26} es mayor que 5 | Está mal |`);
+});
+
+promesa26failed
+  .then((res) => console.log(res))
+  .catch((error) => console.log(error));
+
+console.log("(37)=====================================================(37)");
+
+const espera = (ms) => {
+  return new Promise((res) => setTimeout(res, ms));
+};
+
+const functionAEsperar = async (tiempo) => {
+  try {
+    console.log("¡Ha comenzado!");
+    await espera(tiempo * 1000);
+    console.log("!Proceso terminado!");
+  } catch (error) {
+    console.log("No ha funcionado", error);
+  }
+};
+
+functionAEsperar(3);
+console.log("(37)=====================================================(37)");
+
+const asyncAwaitPromise = new Promise((resolve, reject) => {
+  const sucess = true;
+  if (sucess) {
+    setTimeout(() => resolve("Terminado"), 2000);
+  } else reject("No terminado");
+});
+
+async function getPromiseResponse() {
+  try {
+    const response = await asyncAwaitPromise;
+    if (!response) throw new Error("Promesa fallida");
+    console.log("Respuesta a la promesa asíncrona", response);
+  } catch (error) {
+    console.log("El fallo: ", error);
+  }
+}
+getPromiseResponse();
