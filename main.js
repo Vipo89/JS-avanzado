@@ -1,4 +1,4 @@
-console.log("(1)=====================================================(1)");
+/*console.log("(1)=====================================================(1)");
 // function discount(price) {
 //   return price * 0.9;
 // }
@@ -494,3 +494,118 @@ async function getPromiseResponse() {
   }
 }
 getPromiseResponse();
+*/
+console.log("(38)=====================================================(38)");
+
+const persona38 = {
+  nombre: "Víctor",
+  edad: 24,
+  ciudad: "Málaga",
+};
+
+console.log(persona38);
+console.log(JSON.stringify(persona38));
+
+console.log("(39)=====================================================(39)");
+
+const persona39 = '{"nombre":"Ana","edad":25,"ciudad":"Madrid"}';
+
+console.log(typeof persona39);
+console.log(typeof JSON.parse(persona39));
+
+console.log("(40)=====================================================(40)");
+
+const alumnos = [
+  { nombre: "Víctor", edad: 24, ciudad: "Málaga", nota:4 },
+  { nombre: "Pedro", edad: 47, ciudad: "Cádiz",nota:7 },
+  { nombre: "Alberto", edad: 92, ciudad: "Granada",nota:9 },
+];
+
+const stringAlumnos = JSON.stringify(alumnos);
+console.log(stringAlumnos);
+console.log(typeof stringAlumnos);
+
+const backToArray = JSON.parse(stringAlumnos);
+console.log(backToArray);
+console.log(typeof backToArray);
+
+// for (let i = 0; i < backToArray.length; i++) {
+//   console.log(backToArray[i].nombre);
+// }
+
+// backToArray.forEach((alumno) => {
+//   console.log(alumno.nombre);
+// });
+
+for (const alumno of backToArray) {
+  console.log(alumno.nombre, alumno.nota);
+}
+
+console.log("(41)=====================================================(41)");
+
+const ex41 = {
+  saludar: function volar() {
+    console.log("Estoy volando");
+  },
+};
+console.log(JSON.stringify(ex41));
+
+console.log("(42)=====================================================(42)");
+
+let puntos;
+
+console.log(puntos ?? 20);
+
+console.log("(43)=====================================================(43)");
+
+let valor = 0;
+
+console.log(valor ?? 10); //Muestra 0 porque el operador ?? sólo va con null / undefined
+
+console.log("(44)=====================================================(44)");
+
+let nombreUsuario = null;
+
+console.log(nombreUsuario ?? "Invitado");
+
+console.log("(45)=====================================================(45)");
+
+function obtenerDescuento(precio) {
+  return (precio ?? 0) * 0.1;
+}
+
+console.log(obtenerDescuento(1));
+console.log(obtenerDescuento(null));
+console.log(obtenerDescuento(undefined));
+
+console.log("(46)=====================================================(46)");
+
+const libro = { titulo: "1984", autor: { nombre: "Orwell" } };
+
+console.log(libro?.autor?.nombre);
+
+console.log(libro?.editorial?.nombre ?? "Sin editorial");
+
+console.log("(47)=====================================================(47)");
+
+const obj47 = {};
+
+console.log(obj47.datos?.valor);
+
+console.log("(48)=====================================================(48)");
+const usuario = null;
+
+console.log(usuario?.nombre ?? "Usuario no encontrado");
+
+console.log("(49)=====================================================(49)");
+
+const clientes = [
+  { nombre: "Pepe", direccion: { ciudad: "Málaga" } },
+  { nombre: "Pedro", direccion: "" },
+  { nombre: "Pelele", direccion: { ciudad: "Cádiz" } },
+  { nombre: "Palitroque", direccion: "" },
+];
+
+for (const cliente of clientes) {
+  console.log(cliente.direccion?.ciudad ?? "Sin ciudad");
+}
